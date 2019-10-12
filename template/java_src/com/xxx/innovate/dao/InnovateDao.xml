@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.xxx.innovate.dao.InnovateDao">
+	<resultMap id="RM_InnovateEntity" type="com.blueland.xxx.model.InnovateEntity">
+        <result property="id" column="ID"/>
+        <result property="title" column="TITLE"/>
+        <result property="analyse1" column="ANALYSE1"/>
+        <result property="keyword" column="KEYWORD"/>
+        <result property="type" column="TYPE"/>
+        <result property="parentCategoryId" column="PARENT_CATEGORY_ID"/>
+        <result property="parentCategoryName" column="PARENT_CATEGORY_NAME"/>
+        <result property="categoryId" column="CATEGORY_ID"/>
+        <result property="categoryName" column="CATEGORY_NAME"/>
+        <result property="name" column="NAME"/>
+        <result property="telephone" column="TELEPHONE"/>
+        <result property="email" column="EMAIL"/>
+        <result property="isPublic" column="IS_PUBLIC"/>
+        <result property="score" column="SCORE"/>
+        <result property="rank" column="RANK"/>
+        <result property="goodCount" column="GOOD_COUNT"/>
+        <result property="talkCount" column="TALK_COUNT"/>
+        <result property="viewCount" column="VIEW_COUNT"/>
+        <result property="collectCount" column="COLLECT_COUNT"/>
+        <result property="integratedNum" column="INTEGRATED_NUM"/>
+        <result property="status" column="STATUS"/>
+        <result property="sourceType" column="SOURCE_TYPE"/>
+        <result property="sourceSys" column="SOURCE_SYS"/>
+        <result property="sourceId" column="SOURCE_ID"/>
+        <result property="sourceName" column="SOURCE_NAME"/>
+        <result property="remark" column="REMARK"/>
+        <result property="isDelete" column="IS_DELETE"/>
+        <result property="createUserCode" column="CREATE_USER_CODE"/>
+        <result property="createUserName" column="CREATE_USER_NAME"/>
+        <result property="createOrgId" column="CREATE_ORG_ID"/>
+        <result property="createOrgName" column="CREATE_ORG_NAME"/>
+        <result property="createDeptId" column="CREATE_DEPT_ID"/>
+        <result property="createDeptName" column="CREATE_DEPT_NAME"/>
+        <result property="createCompanyId" column="CREATE_COMPANY_ID"/>
+        <result property="createCompanyName" column="CREATE_COMPANY_NAME"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="updateUserCode" column="UPDATE_USER_CODE"/>
+        <result property="updateOrgId" column="UPDATE_ORG_ID"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <result property="receiverCode" column="RECEIVER_CODE"/>
+        <result property="receiverName" column="RECEIVER_NAME"/>
+        <result property="receiverOrgId" column="RECEIVER_ORG_ID"/>
+        <result property="receiverOrgName" column="RECEIVER_ORG_NAME"/>
+        <result property="receiverDeptId" column="RECEIVER_DEPT_ID"/>
+        <result property="receiverDeptName" column="RECEIVER_DEPT_NAME"/>
+        <result property="trunStatus" column="TRUN_STATUS"/>
+        <result property="intimeId" column="INTIME_ID"/>
+        <result property="intimeDate" column="INTIME_DATE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="isRecommend" column="IS_RECOMMEND"/>
+        <result property="recommendUserCode" column="RECOMMEND_USER_CODE"/>
+        <result property="recommendTime" column="RECOMMEND_TIME"/>
+        <result property="aim" column="AIM"/>
+        <result property="analyse2" column="ANALYSE2"/>
+	</resultMap>
+
+	<sql id="InnovateEntityColumns">
+        	ID,
+        	TITLE,
+        	ANALYSE1,
+        	KEYWORD,
+        	TYPE,
+        	PARENT_CATEGORY_ID,
+        	PARENT_CATEGORY_NAME,
+        	CATEGORY_ID,
+        	CATEGORY_NAME,
+        	NAME,
+        	TELEPHONE,
+        	EMAIL,
+        	IS_PUBLIC,
+        	SCORE,
+        	RANK,
+        	GOOD_COUNT,
+        	TALK_COUNT,
+        	VIEW_COUNT,
+        	COLLECT_COUNT,
+        	INTEGRATED_NUM,
+        	STATUS,
+        	SOURCE_TYPE,
+        	SOURCE_SYS,
+        	SOURCE_ID,
+        	SOURCE_NAME,
+        	REMARK,
+        	IS_DELETE,
+        	CREATE_USER_CODE,
+        	CREATE_USER_NAME,
+        	CREATE_ORG_ID,
+        	CREATE_ORG_NAME,
+        	CREATE_DEPT_ID,
+        	CREATE_DEPT_NAME,
+        	CREATE_COMPANY_ID,
+        	CREATE_COMPANY_NAME,
+        	CREATE_TIME,
+        	UPDATE_USER_CODE,
+        	UPDATE_ORG_ID,
+        	UPDATE_TIME,
+        	RECEIVER_CODE,
+        	RECEIVER_NAME,
+        	RECEIVER_ORG_ID,
+        	RECEIVER_ORG_NAME,
+        	RECEIVER_DEPT_ID,
+        	RECEIVER_DEPT_NAME,
+        	TRUN_STATUS,
+        	INTIME_ID,
+        	INTIME_DATE,
+        	CONTENT,
+        	IS_RECOMMEND,
+        	RECOMMEND_USER_CODE,
+        	RECOMMEND_TIME,
+        	AIM,
+        	ANALYSE2
+	</sql>
+	
+	<sql id="InnovateEntityQueryColumns">
+        	ID,
+        	TITLE,
+        	ANALYSE1,
+        	KEYWORD,
+        	TYPE,
+        	PARENT_CATEGORY_ID,
+        	PARENT_CATEGORY_NAME,
+        	CATEGORY_ID,
+        	CATEGORY_NAME,
+        	NAME,
+        	TELEPHONE,
+        	EMAIL,
+        	IS_PUBLIC,
+        	SCORE,
+        	RANK,
+        	GOOD_COUNT,
+        	TALK_COUNT,
+        	VIEW_COUNT,
+        	COLLECT_COUNT,
+        	INTEGRATED_NUM,
+        	STATUS,
+        	SOURCE_TYPE,
+        	SOURCE_SYS,
+        	SOURCE_ID,
+        	SOURCE_NAME,
+        	REMARK,
+        	IS_DELETE,
+        	CREATE_USER_CODE,
+        	CREATE_USER_NAME,
+        	CREATE_ORG_ID,
+        	CREATE_ORG_NAME,
+        	CREATE_DEPT_ID,
+        	CREATE_DEPT_NAME,
+        	CREATE_COMPANY_ID,
+        	CREATE_COMPANY_NAME,
+        	CREATE_TIME,
+        	UPDATE_USER_CODE,
+        	UPDATE_ORG_ID,
+        	UPDATE_TIME,
+        	RECEIVER_CODE,
+        	RECEIVER_NAME,
+        	RECEIVER_ORG_ID,
+        	RECEIVER_ORG_NAME,
+        	RECEIVER_DEPT_ID,
+        	RECEIVER_DEPT_NAME,
+        	TRUN_STATUS,
+        	INTIME_ID,
+        	INTIME_DATE,
+        	CONTENT,
+        	IS_RECOMMEND,
+        	RECOMMEND_USER_CODE,
+        	RECOMMEND_TIME,
+        	AIM,
+        	ANALYSE2
+	</sql>
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" useGeneratedKeys="false" keyProperty="id">
+        INSERT INTO T_INNOVATE (<include refid="InnovateEntityColumns"/>) VALUES (
+        	#{id,jdbcType=VARCHAR},
+        	#{title,jdbcType=VARCHAR},
+        	#{analyse1,jdbcType=VARCHAR},
+        	#{keyword,jdbcType=VARCHAR},
+        	#{type,jdbcType=DECIMAL},
+        	#{parentCategoryId,jdbcType=VARCHAR},
+        	#{parentCategoryName,jdbcType=VARCHAR},
+        	#{categoryId,jdbcType=VARCHAR},
+        	#{categoryName,jdbcType=VARCHAR},
+        	#{name,jdbcType=VARCHAR},
+        	#{telephone,jdbcType=VARCHAR},
+        	#{email,jdbcType=VARCHAR},
+        	#{isPublic,jdbcType=DECIMAL},
+        	#{score,jdbcType=DECIMAL},
+        	#{rank,jdbcType=DECIMAL},
+        	#{goodCount,jdbcType=DECIMAL},
+        	#{talkCount,jdbcType=DECIMAL},
+        	#{viewCount,jdbcType=DECIMAL},
+        	#{collectCount,jdbcType=DECIMAL},
+        	#{integratedNum,jdbcType=DECIMAL},
+        	#{status,jdbcType=VARCHAR},
+        	#{sourceType,jdbcType=DECIMAL},
+        	#{sourceSys,jdbcType=DECIMAL},
+        	#{sourceId,jdbcType=VARCHAR},
+        	#{sourceName,jdbcType=VARCHAR},
+        	#{remark,jdbcType=VARCHAR},
+        	#{isDelete,jdbcType=VARCHAR},
+        	#{createUserCode,jdbcType=VARCHAR},
+        	#{createUserName,jdbcType=VARCHAR},
+        	#{createOrgId,jdbcType=VARCHAR},
+        	#{createOrgName,jdbcType=VARCHAR},
+        	#{createDeptId,jdbcType=VARCHAR},
+        	#{createDeptName,jdbcType=VARCHAR},
+        	#{createCompanyId,jdbcType=VARCHAR},
+        	#{createCompanyName,jdbcType=VARCHAR},
+        	#{createTime,jdbcType=TIMESTAMP},
+        	#{updateUserCode,jdbcType=VARCHAR},
+        	#{updateOrgId,jdbcType=VARCHAR},
+        	#{updateTime,jdbcType=TIMESTAMP},
+        	#{receiverCode,jdbcType=VARCHAR},
+        	#{receiverName,jdbcType=VARCHAR},
+        	#{receiverOrgId,jdbcType=VARCHAR},
+        	#{receiverOrgName,jdbcType=VARCHAR},
+        	#{receiverDeptId,jdbcType=VARCHAR},
+        	#{receiverDeptName,jdbcType=VARCHAR},
+        	#{trunStatus,jdbcType=VARCHAR},
+        	#{intimeId,jdbcType=VARCHAR},
+        	#{intimeDate,jdbcType=TIMESTAMP},
+        	#{content,jdbcType=CLOB},
+        	#{isRecommend,jdbcType=DECIMAL},
+        	#{recommendUserCode,jdbcType=VARCHAR},
+        	#{recommendTime,jdbcType=TIMESTAMP},
+        	#{aim,jdbcType=CLOB},
+        	#{analyse2,jdbcType=CLOB}
+        )
+	</insert>
+    
+	<update id="update" >
+        UPDATE T_INNOVATE
+        	<set>
+		        	<if test="@Ognl@isNotEmpty(title)">
+		        		TITLE = #{title,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(analyse1)">
+		        		ANALYSE1 = #{analyse1,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(keyword)">
+		        		KEYWORD = #{keyword,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(type)">
+		        		TYPE = #{type,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(parentCategoryId)">
+		        		PARENT_CATEGORY_ID = #{parentCategoryId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(parentCategoryName)">
+		        		PARENT_CATEGORY_NAME = #{parentCategoryName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(categoryId)">
+		        		CATEGORY_ID = #{categoryId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(categoryName)">
+		        		CATEGORY_NAME = #{categoryName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(name)">
+		        		NAME = #{name,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(telephone)">
+		        		TELEPHONE = #{telephone,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(email)">
+		        		EMAIL = #{email,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(isPublic)">
+		        		IS_PUBLIC = #{isPublic,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(score)">
+		        		SCORE = #{score,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(rank)">
+		        		RANK = #{rank,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(goodCount)">
+		        		GOOD_COUNT = #{goodCount,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(talkCount)">
+		        		TALK_COUNT = #{talkCount,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(viewCount)">
+		        		VIEW_COUNT = #{viewCount,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(collectCount)">
+		        		COLLECT_COUNT = #{collectCount,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(integratedNum)">
+		        		INTEGRATED_NUM = #{integratedNum,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(status)">
+		        		STATUS = #{status,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(sourceType)">
+		        		SOURCE_TYPE = #{sourceType,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(sourceSys)">
+		        		SOURCE_SYS = #{sourceSys,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(sourceId)">
+		        		SOURCE_ID = #{sourceId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(sourceName)">
+		        		SOURCE_NAME = #{sourceName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(remark)">
+		        		REMARK = #{remark,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(isDelete)">
+		        		IS_DELETE = #{isDelete,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(createUserCode)">
+		        		CREATE_USER_CODE = #{createUserCode,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(createUserName)">
+		        		CREATE_USER_NAME = #{createUserName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(createOrgId)">
+		        		CREATE_ORG_ID = #{createOrgId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(createOrgName)">
+		        		CREATE_ORG_NAME = #{createOrgName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(createDeptId)">
+		        		CREATE_DEPT_ID = #{createDeptId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(createDeptName)">
+		        		CREATE_DEPT_NAME = #{createDeptName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(createCompanyId)">
+		        		CREATE_COMPANY_ID = #{createCompanyId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(createCompanyName)">
+		        		CREATE_COMPANY_NAME = #{createCompanyName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(createTime)">
+		        		CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(updateUserCode)">
+		        		UPDATE_USER_CODE = #{updateUserCode,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(updateOrgId)">
+		        		UPDATE_ORG_ID = #{updateOrgId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(updateTime)">
+		        		UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(receiverCode)">
+		        		RECEIVER_CODE = #{receiverCode,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(receiverName)">
+		        		RECEIVER_NAME = #{receiverName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(receiverOrgId)">
+		        		RECEIVER_ORG_ID = #{receiverOrgId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(receiverOrgName)">
+		        		RECEIVER_ORG_NAME = #{receiverOrgName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(receiverDeptId)">
+		        		RECEIVER_DEPT_ID = #{receiverDeptId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(receiverDeptName)">
+		        		RECEIVER_DEPT_NAME = #{receiverDeptName,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(trunStatus)">
+		        		TRUN_STATUS = #{trunStatus,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(intimeId)">
+		        		INTIME_ID = #{intimeId,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(intimeDate)">
+		        		INTIME_DATE = #{intimeDate,jdbcType=TIMESTAMP},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(content)">
+		        		CONTENT = #{content,jdbcType=CLOB},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(isRecommend)">
+		        		IS_RECOMMEND = #{isRecommend,jdbcType=DECIMAL},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(recommendUserCode)">
+		        		RECOMMEND_USER_CODE = #{recommendUserCode,jdbcType=VARCHAR},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(recommendTime)">
+		        		RECOMMEND_TIME = #{recommendTime,jdbcType=TIMESTAMP},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(aim)">
+		        		AIM = #{aim,jdbcType=CLOB},
+		        	</if>
+		        	<if test="@Ognl@isNotEmpty(analyse2)">
+		        		ANALYSE2 = #{analyse2,jdbcType=CLOB}
+		        	</if>
+	        </set>
+        WHERE 
+	        ID = #{id,jdbcType=VARCHAR} 
+	</update>
+
+    <delete id="delete">
+        DELETE FROM T_INNOVATE WHERE
+        ID = #{id,jdbcType=VARCHAR} 
+    </delete>
+    
+    <select id="get" resultMap="RM_InnovateEntity">
+		SELECT <include refid="InnovateEntityQueryColumns"/>
+	    FROM T_INNOVATE 
+        WHERE 
+	        ID = #{id,jdbcType=VARCHAR} 
+	</select>
+	
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="findList" resultMap="RM_InnovateEntity">
+    	SELECT <include refid="InnovateEntityQueryColumns"/>
+	    FROM T_INNOVATE 
+		<include refid="findList_where"/>
+		
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+	
+	
+	<sql id="findList_where">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>	      				
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND ID = #{id,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(title)">
+				AND TITLE = #{title,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(analyse1)">
+				AND ANALYSE1 = #{analyse1,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(keyword)">
+				AND KEYWORD = #{keyword,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(type)">
+				AND TYPE = #{type,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parentCategoryId)">
+				AND PARENT_CATEGORY_ID = #{parentCategoryId,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parentCategoryName)">
+				AND PARENT_CATEGORY_NAME = #{parentCategoryName,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(categoryId)">
+				AND CATEGORY_ID = #{categoryId,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(categoryName)">
+				AND CATEGORY_NAME = #{categoryName,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(name)">
+				AND NAME = #{name,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(telephone)">
+				AND TELEPHONE = #{telephone,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(email)">
+				AND EMAIL = #{email,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(isPublic)">
+				AND IS_PUBLIC = #{isPublic,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(score)">
+				AND SCORE = #{score,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(rank)">
+				AND RANK = #{rank,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(goodCount)">
+				AND GOOD_COUNT = #{goodCount,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(talkCount)">
+				AND TALK_COUNT = #{talkCount,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(viewCount)">
+				AND VIEW_COUNT = #{viewCount,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(collectCount)">
+				AND COLLECT_COUNT = #{collectCount,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(integratedNum)">
+				AND INTEGRATED_NUM = #{integratedNum,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(status)">
+				AND STATUS = #{status,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sourceType)">
+				AND SOURCE_TYPE = #{sourceType,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sourceSys)">
+				AND SOURCE_SYS = #{sourceSys,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sourceId)">
+				AND SOURCE_ID = #{sourceId,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sourceName)">
+				AND SOURCE_NAME = #{sourceName,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(remark)">
+				AND REMARK = #{remark,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(isDelete)">
+				AND IS_DELETE = #{isDelete,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createUserCode)">
+				AND CREATE_USER_CODE = #{createUserCode,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createUserName)">
+				AND CREATE_USER_NAME = #{createUserName,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createOrgId)">
+				AND CREATE_ORG_ID = #{createOrgId,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createOrgName)">
+				AND CREATE_ORG_NAME = #{createOrgName,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createDeptId)">
+				AND CREATE_DEPT_ID = #{createDeptId,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createDeptName)">
+				AND CREATE_DEPT_NAME = #{createDeptName,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createCompanyId)">
+				AND CREATE_COMPANY_ID = #{createCompanyId,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createCompanyName)">
+				AND CREATE_COMPANY_NAME = #{createCompanyName,jdbcType=VARCHAR}
+			</if>
+	       
+	       <if test="@Ognl@isNotEmpty(updateUserCode)">
+				AND UPDATE_USER_CODE = #{updateUserCode,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(updateOrgId)">
+				AND UPDATE_ORG_ID = #{updateOrgId,jdbcType=VARCHAR}
+			</if>
+	       
+	       <if test="@Ognl@isNotEmpty(receiverCode)">
+				AND RECEIVER_CODE = #{receiverCode,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(receiverName)">
+				AND RECEIVER_NAME = #{receiverName,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(receiverOrgId)">
+				AND RECEIVER_ORG_ID = #{receiverOrgId,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(receiverOrgName)">
+				AND RECEIVER_ORG_NAME = #{receiverOrgName,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(receiverDeptId)">
+				AND RECEIVER_DEPT_ID = #{receiverDeptId,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(receiverDeptName)">
+				AND RECEIVER_DEPT_NAME = #{receiverDeptName,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(trunStatus)">
+				AND TRUN_STATUS = #{trunStatus,jdbcType=VARCHAR}
+			</if>
+	       <if test="@Ognl@isNotEmpty(intimeId)">
+				AND INTIME_ID = #{intimeId,jdbcType=VARCHAR}
+			</if>
+	       
+	       <if test="@Ognl@isNotEmpty(content)">
+				AND CONTENT = #{content,jdbcType=CLOB}
+			</if>
+	       <if test="@Ognl@isNotEmpty(isRecommend)">
+				AND IS_RECOMMEND = #{isRecommend,jdbcType=DECIMAL}
+			</if>
+	       <if test="@Ognl@isNotEmpty(recommendUserCode)">
+				AND RECOMMEND_USER_CODE = #{recommendUserCode,jdbcType=VARCHAR}
+			</if>
+	       
+	       <if test="@Ognl@isNotEmpty(aim)">
+				AND AIM = #{aim,jdbcType=CLOB}
+			</if>
+	       <if test="@Ognl@isNotEmpty(analyse2)">
+				AND ANALYSE2 = #{analyse2,jdbcType=CLOB}
+			</if>
+		</where>
+	</sql>
+    
+	
+</mapper>
+
